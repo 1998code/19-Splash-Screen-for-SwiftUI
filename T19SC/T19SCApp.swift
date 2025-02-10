@@ -11,7 +11,32 @@ import SwiftUI
 struct T19SCApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                FindMy()
+                    .ignoresSafeArea(edges: .bottom)
+                    .tabItem {
+                        Image(systemName: "person.circle")
+                        Text("Find My")
+                    }
+                FinalCutCamera()
+                    .ignoresSafeArea(edges: .bottom)
+                    .tabItem {
+                        Image(systemName: "film")
+                        Text("Final Cut Camera")
+                    }
+                AppleTV()
+                    .ignoresSafeArea(edges: .bottom)
+                    .tabItem {
+                        Image(systemName: "tv")
+                        Text("Apple TV")
+                    }
+                Journal()
+                    .ignoresSafeArea(edges: .bottom)
+                    .tabItem {
+                        Image(systemName: "book")
+                        Text("Journal")
+                    }
+            }
         }
     }
 }
