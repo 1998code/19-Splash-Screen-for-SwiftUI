@@ -19,7 +19,8 @@ etc
 ## Known Issues
 - Gesture is disabled due to multiple bugs
 - Only compatible with iOS18+
-- Designed for iPhone 16 Pro Max and large screen devices
+- Designed for iPhone 16 Pro Max and large-screen devices
+- Possible memory leakage when array contains too many items
 
 #### Copyright
 App Store Screenshots © 2025 Apple Inc.
