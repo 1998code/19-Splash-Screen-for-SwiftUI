@@ -75,3 +75,11 @@ https://x.com/1998design/status/1888945523845140677
 Use [SwiftNEWKit](https://github.com/1998code/SwiftNEWKit) together, 2X effective!
 <br><br>
 <img height=300 src="https://github.com/user-attachments/assets/cc88b31d-326f-4a43-9e6a-5f583fcf153b" />
+
+## License
+MIT
+
+## Supported By
+<a href="https://m.do.co/c/ce873177d9ab">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px">
+</a>
