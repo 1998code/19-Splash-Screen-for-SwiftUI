@@ -11,35 +11,27 @@ import SplashScreenKit
 struct ContentView: View {
     var body: some View {
         SplashScreen(
-            images: [],
-            title: "STRING",
-            product: "STRING",
-            caption: "STRING",
-            cta: "STRING"
+            images: [
+                Photo("Apple TV 1"),
+                Photo("Apple TV 2"),
+                Photo("Apple TV 3"),
+                Photo("Apple TV 4"),
+                Photo("Apple TV 5"),
+                Photo("Apple TV 6")
+            ],
+            title: "Welcome to",
+            product: "Apple TV",
+            caption: "Browse all movies, TV shows, and more from Apple TV+. Watch all Apple Originals here.",
+            cta: "Watch Now"
         ) {
             // Button Action
+            print("Hello, Apple TV!")
         }
     }
 }
 
 #Preview("Apple TV") {
-    SplashScreen(
-        images: [
-            Photo("Apple TV 1"),
-            Photo("Apple TV 2"),
-            Photo("Apple TV 3"),
-            Photo("Apple TV 4"),
-            Photo("Apple TV 5"),
-            Photo("Apple TV 6")
-        ],
-        title: "Welcome to",
-        product: "Apple TV",
-        caption: "Browse all movies, TV shows, and more from Apple TV+. Watch all Apple Originals here.",
-        cta: "Watch Now"
-    ) {
-        // Button Action
-        print("Hello, Apple TV!")
-    }
+    ContentView()
 }
 
 #Preview("Final Cut Camera") {
