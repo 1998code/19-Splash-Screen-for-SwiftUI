@@ -5,7 +5,7 @@
 
 ## Version
 **2.0.0 (Early Preview)** <br>
-*⚠️ Various issues existed, not suitable for the production environment!*
+*⚠️ Carousel's issues existed, not suitable for the production environment!*
 
 ## Features
 - **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
