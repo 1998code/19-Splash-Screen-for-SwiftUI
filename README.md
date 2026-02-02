@@ -8,58 +8,66 @@
 *⚠️ Various issues existed, not suitable for the production environment!*
 
 ## Features
-- Drop Transition
-- Auto Rotation with paging
-- Text Effect
-- Text Transition
-- Fade-in/out Transition/Animation
-
-## Beautiful Previews
-| ![Apple TV](https://github.com/user-attachments/assets/d1175ec1-8880-45e6-8591-993b6d063346) | ![1 Final Cut Camera](https://github.com/user-attachments/assets/2d8a7f5a-abfe-4107-9293-bee95c524edc) | ![1 Find My](https://github.com/user-attachments/assets/f7a3dee2-6378-4ecb-b8e2-8a154d20faf0) | ![1 Journal](https://github.com/user-attachments/assets/89061031-116a-4a5e-b75d-1614a293f23e) |
-| --- | --- | --- | --- |
-| Apple TV | Final Cut Camera | Find My | Journal |
+- **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
+- **AsyncImage Support:** Seamlessly load images from remote URLs or local assets.
+- **Drop Transition & Paging:** Dynamic animations for the carousel mode.
+- **Advanced Text Effects:** Beautiful text rendering and transitions.
+- **Feature Lists:** Easily showcase key features in static mode.
 
 ## Environment / Tested on
-- 📲 iOS18+ required
+- 📲 iOS 18.0+ required
 - Swift 6.0
-- iPhone 16 Pro / Pro Max
-- Xcode 16.2 (16C5032a)
+- Xcode 16.0+
 
 ## How to use
-0. Open Xcode and (create) a project
-1. In **Package Dependencies**, add ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
-2. Then ```import SplashScreenKit``` on top
-3. Sample Code:
+Add the package to your project: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+
+### Carousel Mode (Default)
+The classic interactive experience with rotating images.
 ```swift
-struct ContentView: View {
-    var body: some View {
-        SplashScreen(
-            images: [],
-            title: "STRING",
-            product: "STRING",
-            caption: "STRING",
-            cta: "STRING"
-        ) {
-            // Button Action
-        }
-    }
+SplashScreen(
+    images: [
+        Photo("ImageName1"),
+        Photo("https://example.com/image.jpg") // Remote URLs supported!
+    ],
+    title: "Welcome to",
+    product: "Apple TV",
+    caption: "Browse all movies, TV shows, and more.",
+    cta: "Watch Now"
+) {
+    print("Action Button Tapped")
 }
 ```
 
-## Project Demo
-Path: [Demo/Demo.xcodeproj](https://github.com/1998code/19-Splash-Screen-for-SwiftUI/tree/main/Demo)
+### Static Mode
+A clean, scrollable layout perfect for product introductions.
+```swift
+SplashScreen(
+    mode: .static,
+    images: [Photo("https://url.to/header_image.jpg")],
+    title: "Creator Studio",
+    product: "3 months of Creator Studio for free.",
+    caption: "Bring your vision to life with powerful apps.",
+    features: [
+        SplashFeature(title: "Feature 1", icon: "video"),
+        SplashFeature(title: "Feature 2", icon: "waveform")
+    ],
+    footer: "Terms and conditions apply.",
+    cta: "Accept Offer",
+    secondaryCta: "See All Plans",
+    secondaryAction: {
+        print("Secondary action tapped")
+    }
+) {
+    print("Primary action tapped")
+}
+```
 
 ## Known Issues
 **Major**
-- Gesture is **disabled** due to multiple bugs
-  - Dragging (from left to right) is not working due to offset; and
-  - Dragging (from right to left) works but fails the ```currentIndex```
-- Only compatible with iOS18+, like Apple Invites app
-- Only tested on iPhone 16 Pro/Pro Max (Resize problem on small devices)
-- Possible memory leakage when inserting too many items into the array
-
-**Minor**
-- The auto-rotation+paging feels like a "Conveyor belt sushi 🍣", not so smooth.
+- Gesture is **disabled** due to multiple bugs in carousel mode.
+- Only compatible with iOS18+, like Apple Invites app.
+- Resizing issues: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths.
 
 ## Copyright
 App Store Screenshots © 2025 Apple Inc.
