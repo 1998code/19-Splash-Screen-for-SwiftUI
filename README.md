@@ -4,7 +4,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**1.0.0 (Early Preview)** <br>
+**2.0.0 (Early Preview)** <br>
 *⚠️ Various issues existed, not suitable for the production environment!*
 
 ## Features
@@ -39,7 +39,7 @@ SplashScreen(
 }
 ```
 
-### Static Mode
+### Static Mode (NEW)
 A clean, scrollable layout perfect for product introductions.
 ```swift
 SplashScreen(
@@ -62,6 +62,8 @@ SplashScreen(
     print("Primary action tapped")
 }
 ```
+
+<img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Known Issues
 **Major**
