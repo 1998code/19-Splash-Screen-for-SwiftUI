@@ -4,15 +4,15 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**2.1.0 (Performance Update)** <br>
-*Smooth, high-performance carousel with Metal-accelerated rendering.*
+**2.1.0 (Stable Release)** <br>
+*Optimized for high-performance interaction with zero jank.*
 
-- **Performance Optimized:** Metal-accelerated rendering (`compositingGroup`) and efficient per-frame updates.
-- **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
+- **Seamless Infinite Carousel:** New virtual-index logic prevents "flying cards" and ensures smooth infinite rotation.
+- **Performance Optimized:** Metal-accelerated rendering (`drawingGroup`) and efficient per-frame updates via `RunLoop`.
+- **Momentum Scrolling:** Butter-smooth, velocity-based interactive gestures with native deceleration feel.
 - **AsyncImage Support:** Pre-validated URL handling for lag-free remote image loading.
-- **Momentum Scrolling:** Butter-smooth, velocity-based interactive gestures.
-- **Advanced Text Effects:** Beautiful text rendering and transitions.
-- **Feature Lists:** Easily showcase key features in static mode.
+- **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
+- **Advanced Text Effects:** Beautiful text rendering and transitions using SwiftUI 6.0 features.
 
 ## Environment / Tested on
 - 📲 iOS 18.0+ required
