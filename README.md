@@ -39,6 +39,8 @@ SplashScreen(
 }
 ```
 
+<img src="https://github.com/user-attachments/assets/28c8a5dc-cb8c-4aa4-b0a8-d7139ce3cefc" width="350" />
+
 ### Static Mode (NEW)
 A clean, scrollable layout perfect for product introductions.
 ```swift
