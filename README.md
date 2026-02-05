@@ -4,13 +4,13 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**2.0.0 (Early Preview)** <br>
-*⚠️ Carousel's issues existed, not suitable for the production environment!*
+**2.1.0 (Performance Update)** <br>
+*Smooth, high-performance carousel with Metal-accelerated rendering.*
 
-## Features
+- **Performance Optimized:** Metal-accelerated rendering (`compositingGroup`) and efficient per-frame updates.
 - **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
-- **AsyncImage Support:** Seamlessly load images from remote URLs or local assets.
-- **Drop Transition & Paging:** Dynamic animations for the carousel mode.
+- **AsyncImage Support:** Pre-validated URL handling for lag-free remote image loading.
+- **Momentum Scrolling:** Butter-smooth, velocity-based interactive gestures.
 - **Advanced Text Effects:** Beautiful text rendering and transitions.
 - **Feature Lists:** Easily showcase key features in static mode.
 
@@ -66,10 +66,8 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Known Issues
-**Major**
-- Gesture is **disabled** due to multiple bugs in carousel mode.
-- Only compatible with iOS18+, like Apple Invites app.
-- Resizing issues: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths.
+- Only compatible with iOS 18+, leveraging the latest SwiftUI `TextRenderer` and visual effect APIs.
+- Resizing: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths.
 
 ## Copyright
 App Store Screenshots © 2025 Apple Inc.

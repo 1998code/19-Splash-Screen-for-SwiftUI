@@ -10,6 +10,7 @@ import SwiftUI
 public struct EmphasisAttribute: TextAttribute {}
 
 /// A text renderer that animates its content.
+@available(iOS 18.0, macOS 15.0, *)
 public struct AppearanceEffectRenderer: TextRenderer, Animatable {
     /// The amount of time that passes from the start of the animation.
     /// Animatable.
@@ -110,6 +111,7 @@ public struct AppearanceEffectRenderer: TextRenderer, Animatable {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 public extension Text.Layout {
     /// A helper function for easier access to all runs in a layout.
     var flattenedRuns: some RandomAccessCollection<Text.Layout.Run> {
@@ -124,6 +126,7 @@ public extension Text.Layout {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 public struct TextTransition: Transition {
     public static var properties: TransitionProperties {
         TransitionProperties(hasMotion: true)

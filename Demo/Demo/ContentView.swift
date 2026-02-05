@@ -34,6 +34,32 @@ struct ContentView: View {
     ContentView()
 }
 
+#Preview("Creator Studio (Static)") {
+    SplashScreen(
+        mode: .static,
+        images: [
+            Photo("https://www.apple.com/newsroom/images/2026/01/introducing-apple-creator-studio-an-inspiring-collection-of-creative-apps/article/Apple-Creator-Studio-lifestyle-Pixelmator-Pro_big.jpg.large_2x.jpg")
+        ],
+        title: "Creator Studio",
+        product: "Your new device includes 3 months of Creator Studio for free.",
+        caption: "Bring your vision to life with powerful apps for video and music, creative imaging, and much more.",
+        features: [
+            SplashFeature(title: "Create stunning videos with Final Cut Pro", icon: "video"),
+            SplashFeature(title: "Record, mix, and master music with Logic Pro", icon: "waveform"),
+            SplashFeature(title: "Retouch images, design, and draw with Pixelmator Pro", icon: "paintbrush"),
+            SplashFeature(title: "Premium features in Pages, Numbers, and Keynote", icon: "star.fill")
+        ],
+        footer: "3 months free, then $12.99/month. Terms apply.",
+        cta: "Accept 3 Months Free",
+        secondaryCta: "See All Plans",
+        secondaryAction: {
+            print("See All Plans")
+        }
+    ) {
+        print("Accept 3 Months Free")
+    }
+}
+
 #Preview("Final Cut Camera") {
     SplashScreen(
         images: [
@@ -96,28 +122,24 @@ struct ContentView: View {
     }
 }
 
-#Preview("Creator Studio") {
+#Preview("Keynote") {
     SplashScreen(
-        mode: .static,
         images: [
-            Photo("https://www.apple.com/newsroom/images/2026/01/introducing-apple-creator-studio-an-inspiring-collection-of-creative-apps/article/Apple-Creator-Studio-lifestyle-Pixelmator-Pro_big.jpg.large_2x.jpg")
+            Photo("Keynote 1"),
+            Photo("Keynote 2"),
+            Photo("Keynote 3"),
+            Photo("Keynote 4"),
+            Photo("Keynote 5"),
+            Photo("Keynote 6"),
+            Photo("Keynote 7"),
+            Photo("Keynote 8")
         ],
-        title: "Creator Studio",
-        product: "Your new device includes 3 months of Creator Studio for free.",
-        caption: "Bring your vision to life with powerful apps for video and music, creative imaging, and much more.",
-        features: [
-            SplashFeature(title: "Create stunning videos with Final Cut Pro", icon: "video"),
-            SplashFeature(title: "Record, mix, and master music with Logic Pro", icon: "waveform"),
-            SplashFeature(title: "Retouch images, design, and draw with Pixelmator Pro", icon: "paintbrush"),
-            SplashFeature(title: "Premium features in Pages, Numbers, and Keynote", icon: "star.fill")
-        ],
-        footer: "3 months free, then $12.99/month. Terms apply.",
-        cta: "Accept 3 Months Free",
-        secondaryCta: "See All Plans",
-        secondaryAction: {
-            print("See All Plans")
-        }
+        title: "Welcome to",
+        product: "Keynote",
+        caption: "Create stunning presentations with cinematic animations and pro-level tools that make your ideas stand out.",
+        cta: "Continue"
     ) {
-        print("Accept 3 Months Free")
+        // Button Action
+        print("Hello, Keynote!")
     }
 }

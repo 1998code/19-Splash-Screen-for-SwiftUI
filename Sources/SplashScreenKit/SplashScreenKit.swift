@@ -20,7 +20,7 @@ public struct SplashFeature: Identifiable {
     }
 }
 
-@available(iOS 18.0, *)
+@available(iOS 18.0, macOS 15.0, *)
 public struct SplashScreen: View {
     @State var prVisible: Bool = false
     @State var ctaVisible: Bool = false
@@ -68,18 +68,27 @@ public struct SplashScreen: View {
     public var body: some View {
         ZStack {
             if mode == .carousel {
-                SplashScreenImage(photo: photos[currentIndex])
-                    .ignoresSafeArea(.all)
-                    .blur(radius: 10)
+                // Background image with smooth transition
+                ZStack {
+                    if !photos.isEmpty {
+                        let currentPhoto = photos[min(currentIndex, photos.count - 1)]
+                        SplashScreenImage(photo: currentPhoto)
+                            .id(currentPhoto.id)
+                            .transition(.opacity.animation(.linear(duration: 0.3))) // Faster transition for interactive feel
+                            .ignoresSafeArea(.all)
+                            .blur(radius: 10)
+                    }
+                }
+                
                 VStack {
                     pagingRotation
                         .offset(y: prVisible ? 0 : -500)
                         .transition(.move(edge: .top))
-                        .animation(.easeInOut(duration: 1))
+                        .animation(.easeInOut(duration: 1), value: prVisible)
                     cta
                     Spacer()
                 }
-                .background(.black.opacity(0.8))
+                .background(.black.opacity(0.85))
                 .background(.ultraThinMaterial)
             } else {
                 staticLayout
@@ -199,59 +208,106 @@ public struct SplashScreen: View {
         .ignoresSafeArea(edges: .top)
     }
 
+    @State private var dragOffset: CGFloat = 0
+    @State private var isDragging: Bool = false
+
+    private let itemWidth: CGFloat = 219 + 30
+    
     public var pagingRotation: some View {
         GeometryReader { geometry in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 30) {
-                    ForEach(Array(photos).enumerated().map { $0 }, id: \.offset) { index, photo in
-                        ItemPhoto(photo)
-                            .scrollTransition(axis: .horizontal) { content, phase in
-                                content
-                                    .rotationEffect(.degrees(phase.value * 2.5))
-                                   // Experiental
-                                   .scaleEffect(1 - abs(phase.value) * 0.025)
-                                   .opacity(1 - abs(phase.value) * 0.8)
-                            }
+            let totalWidth = CGFloat(photos.count) * itemWidth
+            let centerX = geometry.size.width / 2
+            
+            ZStack {
+                // Non-jumping Infinite Logic:
+                // Instead of jumping coordinates, we calculate which "virtual" indices are visible.
+                // Each virtual index has a unique, linear position, so SwiftUI never "flies" items during animation.
+                let currentEffectiveOffset = scrollOffset + dragOffset
+                let centerIndex = -currentEffectiveOffset / itemWidth
+                let visibleRange = 6 // Much larger range to prevent items disappearing while still visible
+                let minIdx = Int(floor(centerIndex)) - visibleRange
+                let maxIdx = Int(ceil(centerIndex)) + visibleRange
+                
+                ForEach(minIdx...maxIdx, id: \.self) { virtualIndex in
+                    let photoIndex = (virtualIndex % photos.count + photos.count) % photos.count
+                    let photo = photos[photoIndex]
+                    let x = CGFloat(virtualIndex) * itemWidth + currentEffectiveOffset
+                    let phase = x / geometry.size.width
+                    
+                    ItemPhoto(photo)
+                        .scaleEffect(1 - abs(phase) * CGFloat(0.025))
+                        .opacity(1 - Double(abs(phase)) * 0.8)
+                        .rotationEffect(.degrees(Double(phase) * 5))
+                        .position(x: centerX + x, y: geometry.size.height / 2)
+                        .zIndex(1 - Double(abs(phase)))
+                        .transition(.identity) // Prevent "flying" or "fading" when range changes
+                }
+            }
+            .drawingGroup() // Better for high-speed linear animations
+            .contentShape(Rectangle()) // Ensure the whole area is draggable
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { value in
+                        isDragging = true
+                        dragOffset = value.translation.width
                     }
-                }
-                .offset(x: scrollOffset)
-                .onAppear {
-                    startAutoScroll(geometry.size.width)
-                }
-                .onDisappear {
-                    timer?.invalidate()
-                    prVisible = false
-                    ctaVisible = false
-                }
-                .onChange(of: currentIndex) { index in
-                    withAnimation(nil) {
-                        if index >= photos.count - 3 {
-                            photos.append(contentsOf: photos)
+                    .onEnded { value in
+                        // Calculate momentum based on velocity
+                        let velocity = value.velocity.width
+                        // Reduced multiplier for a more controlled "free" feel
+                        let flickDistance = velocity * 0.15 
+                        
+                        withAnimation(.interpolatingSpring(stiffness: 50, damping: 15)) {
+                            scrollOffset += value.translation.width + flickDistance
+                            dragOffset = 0
                         }
+                        
+                        // Resync isDragging after the momentum animation usually settles
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                            if !isDragging { // Only if a new drag hasn't started
+                                isDragging = false
+                            }
+                        }
+                        isDragging = false // Set to false immediately to allow velocity to take over
                     }
-                }
-            }.disabled(true)
-            .contentMargins(24)
-            .frame(height:475)
-        }.frame(height:475)
-        .padding(.vertical, 25)
+            )
+            .onAppear {
+                startAutoScroll(totalWidth)
+            }
+            .onDisappear {
+                timer?.invalidate()
+                prVisible = false
+                ctaVisible = false
+            }
+        }
+        .frame(height: 475)
+        .padding(.top, 60) // Increased top padding for Dynamic Island
+        .padding(.bottom, 25)
     }
 
-    public func startAutoScroll(_ viewWidth: CGFloat) {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in
-            Task { @MainActor in
-                withAnimation {
-                    scrollOffset -= 1
-                    if scrollOffset <= -viewWidth * CGFloat(photos.count - 1) {
-                        scrollOffset = 0
-                    }
+    public func startAutoScroll(_ totalWidth: CGFloat) {
+        timer?.invalidate()
+        let newTimer = Timer(timeInterval: 0.016, repeats: true) { _ in
+            if !isDragging && !photos.isEmpty {
+                scrollOffset -= 0.6
+                // With virtual indices, we rarely need to truncate.
+                // Truncating only when idle prevents animation "flicker".
+                let totalCarouselWidth = CGFloat(photos.count) * itemWidth
+                if abs(scrollOffset) > totalCarouselWidth * 100 {
+                    scrollOffset = scrollOffset.truncatingRemainder(dividingBy: totalCarouselWidth)
                 }
             }
         }
+        RunLoop.main.add(newTimer, forMode: .common)
+        timer = newTimer
     }
+
     public var currentIndex: Int {
-        let imageWidth: CGFloat = 219 + 30 // Image width + spacing
-        return Int((-scrollOffset + imageWidth / 2) / imageWidth)
+        guard !photos.isEmpty else { return 0 }
+        let currentEffectiveOffset = scrollOffset + dragOffset
+        let virtualIndex = Int(round(-currentEffectiveOffset / itemWidth))
+        let photoIndex = (virtualIndex % photos.count + photos.count) % photos.count
+        return photoIndex
     }
     
     public var cta: some View {
@@ -289,16 +345,17 @@ public struct SplashScreen: View {
                     ctaVisible = true
                 }
             }
-            .animation(.easeInOut(duration: 2))
+            .animation(.easeInOut(duration: 2), value: ctaVisible)
         }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 struct SplashScreenImage: View {
     var photo: Photo
     
     var body: some View {
         Group {
-            if let url = URL(string: photo.title), url.scheme != nil {
+            if let url = photo.resolvedURL {
                 AsyncImage(url: url) { phase in
                     switch phase {
                     case .success(let image):
