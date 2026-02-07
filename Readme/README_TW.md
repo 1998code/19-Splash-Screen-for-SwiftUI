@@ -11,7 +11,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 版本
-**2.2.1 (穩定版本)** <br>
+**2.2.3 (穩定版本)** <br>
 *針對高性能互動進行了優化，零卡頓體驗。*
 
 - **無縫無限輪播：** 全新的虛擬索引邏輯可防止「卡片飛走」並確保流暢的無限旋轉。

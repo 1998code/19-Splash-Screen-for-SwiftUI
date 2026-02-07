@@ -11,7 +11,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Wersja
-**2.2.1 (Wersja Stabilna)** <br>
+**2.2.3 (Wersja Stabilna)** <br>
 *Zoptymalizowany pod kątem wysokiej wydajności interakcji bez zacięć.*
 
 - **Płynna nieskończona karuzela:** Nowa logika wirtualnych indeksów zapobiega „latającym kartom” i zapewnia gładką, nieskończoną rotację.

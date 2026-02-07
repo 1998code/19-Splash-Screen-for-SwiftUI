@@ -11,7 +11,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**2.2.1 (Version Stable)** <br>
+**2.2.3 (Version Stable)** <br>
 *Optimisé pour une interaction haute performance sans saccades.*
 
 - **Carrousel Infini Fluide :** Nouvelle logique d'index virtuel pour éviter les "cartes volantes" et assurer une rotation infinie fluide.
