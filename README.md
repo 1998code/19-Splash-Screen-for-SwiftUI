@@ -1,7 +1,7 @@
 # SplashScreenKit
 ### A New Splash Screen for SwiftUI
 
-[日本語](./Readme/README_JP.md) | [繁體中文](./Readme/README_TW.md) | [简体中文](./Readme/README_CN.md) | [香港粵語](./Readme/README_HK.md) | [한국어](./Readme/README_KR.md)
+[廣東話](./Readme/README_HK.md) | [繁體中文](./Readme/README_TW.md) | [[简体中文](./Readme/README_CN.md) | [日本語](./Readme/README_JP.md) | 한국어](./Readme/README_KR.md)
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
