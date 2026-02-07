@@ -1,8 +1,12 @@
 # SplashScreenKit
 ### Ein neuer Splash-Screen für SwiftUI
 
-| [English](../README.md) | [廣東話](./README_HK.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [日本語](./README_JP.md) | [한국어](./README_KR.md) | [Français](./README_FR.md) | [Deutsch](./README_DE.md) | [Español](./README_ES.md) | [Русский](./README_RU.md) | [Indo](./README_ID.md) | [हिन्दी](./README_HI.md) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Region | Languages |
+| :--- | :--- |
+| **Global** | [English](../README.md) |
+| **Asia** | [廣東話](./README_HK.md) [繁體中文](./README_TW.md) [简体中文](./README_CN.md) [日本語](./README_JP.md) [한국어](./README_KR.md) [Indo](./README_ID.md) [हिन्दी](./README_HI.md) |
+| **Europe** | [Français](./README_FR.md) [Deutsch](./README_DE.md) [Español](./README_ES.md) [Русский](./README_RU.md) [Polski](./README_PL.md) [Türkçe](./README_TR.md) |
+| **ME & Africa** | [العربية](./README_AR.md) [Kiswahili](./README_SW.md) |
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
