@@ -84,7 +84,7 @@ public struct SplashScreen: View {
                     pagingRotation
                         .offset(y: prVisible ? 0 : -500)
                         .transition(.move(edge: .top))
-                        .animation(.easeInOut(duration: 1), value: prVisible)
+                        .animation(.spring(duration: 1.2, bounce: 0.25), value: prVisible)
                     cta
                     Spacer()
                 }
