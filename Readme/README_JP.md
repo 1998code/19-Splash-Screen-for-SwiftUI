@@ -1,12 +1,13 @@
 # SplashScreenKit
 ### SwiftUIのための新しいスプラッシュ画面
 
-[English](../README.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [香港粵語](./README_HK.md) | [한국어](./README_KR.md)
+| [English](../README.md) | [廣東話](./README_HK.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [日本語](./README_JP.md) | [한국어](./README_KR.md) | [Français](./README_FR.md) | [Deutsch](./README_DE.md) | [Español](./README_ES.md) | [Русский](./README_RU.md) | [Indo](./README_ID.md) | [हिन्दी](./README_HI.md) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## バージョン
-**2.2.0 (安定版リリース)** <br>
+**2.2.1 (安定版リリース)** <br>
 *カクつきのない、高性能なインタラクションに最適化されています。*
 
 - **シームレスな無限カルーセル:** 新しい仮想インデックスロジックにより「カードが飛んでいく」現象を防ぎ、スムーズな無限回転を保証します。
@@ -32,12 +33,12 @@ SplashScreen(
         Photo("ImageName1"),
         Photo("https://example.com/image.jpg") // リモートURLもサポート！
     ],
-    title: "Welcome to",
+    title: "ようこそ",
     product: "Apple TV",
-    caption: "Browse all movies, TV shows, and more.",
-    cta: "Watch Now"
+    caption: "すべての映画やテレビ番組などを閲覧できます。",
+    cta: "今すぐ視聴"
 ) {
-    print("Action Button Tapped")
+    print("アクションボタンがタップされました")
 }
 ```
 
@@ -49,21 +50,21 @@ SplashScreen(
 SplashScreen(
     mode: .static,
     images: [Photo("https://url.to/header_image.jpg")],
-    title: "Creator Studio",
-    product: "3 months of Creator Studio for free.",
-    caption: "Bring your vision to life with powerful apps.",
+    title: "クリエイタースタジオ",
+    product: "クリエイタースタジオを3ヶ月間無料でご利用いただけます。",
+    caption: "強力なアプリであなたのビジョンを形にしましょう。",
     features: [
-        SplashFeature(title: "Feature 1", icon: "video"),
-        SplashFeature(title: "Feature 2", icon: "waveform")
+        SplashFeature(title: "機能 1", icon: "video"),
+        SplashFeature(title: "機能 2", icon: "waveform")
     ],
-    footer: "Terms and conditions apply.",
-    cta: "Accept Offer",
-    secondaryCta: "See All Plans",
+    footer: "利用規約が適用されます。",
+    cta: "オファーを受け入れる",
+    secondaryCta: "すべてのプランを表示",
     secondaryAction: {
-        print("Secondary action tapped")
+        print("セカンダリアクションがタップされました")
     }
 ) {
-    print("Primary action tapped")
+    print("プライマリアクションがタップされました")
 }
 ```
 
@@ -80,6 +81,7 @@ App Store Screenshots © 2025 Apple Inc.
 [Creating visual effects with SwiftUI - Apple Developer](https://developer.apple.com/documentation/swiftui/creating-visual-effects-with-swiftui)
 
 ## X (旧Twitter) の関連投稿
+https://x.com/1998design/status/2019418746553790664 <br>
 https://x.com/1998design/status/1888641485303878110 <br>
 https://x.com/1998design/status/1888945523845140677
 

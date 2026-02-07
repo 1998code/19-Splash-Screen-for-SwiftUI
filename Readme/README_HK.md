@@ -1,12 +1,13 @@
 # SplashScreenKit
 ### SwiftUI 全新啟動頁面 (Splash Screen)
 
-[English](../README.md) | [日本語](./README_JP.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [한국어](./README_KR.md)
+| [English](../README.md) | [廣東話](./README_HK.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [日本語](./README_JP.md) | [한국어](./README_KR.md) | [Français](./README_FR.md) | [Deutsch](./README_DE.md) | [Español](./README_ES.md) | [Русский](./README_RU.md) | [Indo](./README_ID.md) | [हिन्दी](./README_HI.md) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 版本
-**2.2.0 (穩定版本)** <br>
+**2.2.1 (穩定版本)** <br>
 *針對高性能互動優化，做到零卡頓。*
 
 - **無縫無限輪播：** 全新虛擬索引邏輯，防止「卡片飛走」，確保無限旋轉順滑。
@@ -32,12 +33,12 @@ SplashScreen(
         Photo("ImageName1"),
         Photo("https://example.com/image.jpg") // 支援遠端 URL！
     ],
-    title: "Welcome to",
+    title: "歡迎使用",
     product: "Apple TV",
-    caption: "Browse all movies, TV shows, and more.",
-    cta: "Watch Now"
+    caption: "瀏覽所有電影、電視節目等。",
+    cta: "立即觀看"
 ) {
-    print("Action Button Tapped")
+    print("按鈕被點擊")
 }
 ```
 
@@ -49,21 +50,21 @@ SplashScreen(
 SplashScreen(
     mode: .static,
     images: [Photo("https://url.to/header_image.jpg")],
-    title: "Creator Studio",
-    product: "3 months of Creator Studio for free.",
-    caption: "Bring your vision to life with powerful apps.",
+    title: "創作者工作室",
+    product: "免費試用 3 個月創作者工作室。",
+    caption: "透過強大嘅應用程式將你嘅願景變為現實。",
     features: [
-        SplashFeature(title: "Feature 1", icon: "video"),
-        SplashFeature(title: "Feature 2", icon: "waveform")
+        SplashFeature(title: "功能 1", icon: "video"),
+        SplashFeature(title: "功能 2", icon: "waveform")
     ],
-    footer: "Terms and conditions apply.",
-    cta: "Accept Offer",
-    secondaryCta: "See All Plans",
+    footer: "適用條款與條件。",
+    cta: "接受優惠",
+    secondaryCta: "查看所有計劃",
     secondaryAction: {
-        print("Secondary action tapped")
+        print("次要動作被點擊")
     }
 ) {
-    print("Primary action tapped")
+    print("主要動作被點擊")
 }
 ```
 
@@ -80,6 +81,7 @@ App Store 螢幕截圖 © 2025 Apple Inc.
 [Creating visual effects with SwiftUI - Apple Developer](https://developer.apple.com/documentation/swiftui/creating-visual-effects-with-swiftui)
 
 ## X 相關貼文
+https://x.com/1998design/status/2019418746553790664 <br>
 https://x.com/1998design/status/1888641485303878110 <br>
 https://x.com/1998design/status/1888945523845140677
 

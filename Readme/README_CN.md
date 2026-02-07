@@ -1,12 +1,13 @@
 # SplashScreenKit
 ### SwiftUI 全新启动页 (Splash Screen)
 
-[English](../README.md) | [日本語](./README_JP.md) | [繁體中文](./README_TW.md) | [香港粵語](./README_HK.md) | [한국어](./README_KR.md)
+| [English](../README.md) | [廣東話](./README_HK.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [日本語](./README_JP.md) | [한국어](./README_KR.md) | [Français](./README_FR.md) | [Deutsch](./README_DE.md) | [Español](./README_ES.md) | [Русский](./README_RU.md) | [Indo](./README_ID.md) | [हिन्दी](./README_HI.md) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 版本
-**2.2.0 (稳定版本)** <br>
+**2.2.1 (稳定版本)** <br>
 *针对高性能交互进行了优化，确保零卡顿体验。*
 
 - **无缝无限轮播：** 全新的虚拟索引逻辑，防止“卡片飞走”并确保流畅的无限旋转。
@@ -22,7 +23,7 @@
 - Xcode 16.0+
 
 ## 如何使用
-將套件新增至您的專案： ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+将包添加到您的项目中： ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
 
 ### 轮播模式 (默认)
 经典的图片旋转交互体验。
@@ -32,12 +33,12 @@ SplashScreen(
         Photo("ImageName1"),
         Photo("https://example.com/image.jpg") // 支持远程 URL！
     ],
-    title: "Welcome to",
+    title: "欢迎使用",
     product: "Apple TV",
-    caption: "Browse all movies, TV shows, and more.",
-    cta: "Watch Now"
+    caption: "浏览所有电影、电视节目等。",
+    cta: "立即观看"
 ) {
-    print("Action Button Tapped")
+    print("按钮被点击")
 }
 ```
 
@@ -49,21 +50,21 @@ SplashScreen(
 SplashScreen(
     mode: .static,
     images: [Photo("https://url.to/header_image.jpg")],
-    title: "Creator Studio",
-    product: "3 months of Creator Studio for free.",
-    caption: "Bring your vision to life with powerful apps.",
+    title: "创作者工作室",
+    product: "免费试用 3 个月创作者工作室。",
+    caption: "通过功能强大的应用将您的愿景变为现实。",
     features: [
-        SplashFeature(title: "Feature 1", icon: "video"),
-        SplashFeature(title: "Feature 2", icon: "waveform")
+        SplashFeature(title: "功能 1", icon: "video"),
+        SplashFeature(title: "功能 2", icon: "waveform")
     ],
-    footer: "Terms and conditions apply.",
-    cta: "Accept Offer",
-    secondaryCta: "See All Plans",
+    footer: "适用条款与条件。",
+    cta: "接受优惠",
+    secondaryCta: "查看所有计划",
     secondaryAction: {
-        print("Secondary action tapped")
+        print("次要按钮被点击")
     }
 ) {
-    print("Primary action tapped")
+    print("主要按钮被点击")
 }
 ```
 
@@ -80,6 +81,7 @@ App Store 屏幕截图 © 2025 Apple Inc.
 [Creating visual effects with SwiftUI - Apple Developer](https://developer.apple.com/documentation/swiftui/creating-visual-effects-with-swiftui)
 
 ## X 上的相关贴文
+https://x.com/1998design/status/2019418746553790664 <br>
 https://x.com/1998design/status/1888641485303878110 <br>
 https://x.com/1998design/status/1888945523845140677
 

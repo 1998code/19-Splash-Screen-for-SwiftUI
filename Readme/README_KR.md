@@ -1,12 +1,13 @@
 # SplashScreenKit
 ### SwiftUI를 위한 새로운 스플래시 화면
 
-[English](../README.md) | [日本語](./README_JP.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [香港粵語](./README_HK.md)
+| [English](../README.md) | [廣東話](./README_HK.md) | [繁體中文](./README_TW.md) | [简体中文](./README_CN.md) | [日本語](./README_JP.md) | [한국어](./README_KR.md) | [Français](./README_FR.md) | [Deutsch](./README_DE.md) | [Español](./README_ES.md) | [Русский](./README_RU.md) | [Indo](./README_ID.md) | [हिन्दी](./README_HI.md) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 버전
-**2.2.0 (안정화 버전)** <br>
+**2.2.1 (안정화 버전)** <br>
 *끊김 없는 고성능 상호작용을 위해 최적화되었습니다.*
 
 - **원활한 무한 캐러셀:** 새로운 가상 인덱스 로직으로 "카드가 튀는" 현상을 방지하고 매끄러운 무한 회전을 보장합니다.
@@ -32,12 +33,12 @@ SplashScreen(
         Photo("ImageName1"),
         Photo("https://example.com/image.jpg") // 원격 URL 지원!
     ],
-    title: "Welcome to",
+    title: "환영합니다",
     product: "Apple TV",
-    caption: "Browse all movies, TV shows, and more.",
-    cta: "Watch Now"
+    caption: "모든 영화, TV 프로그램 등을 검색해 보세요。",
+    cta: "지금 시청하기"
 ) {
-    print("Action Button Tapped")
+    print("액션 버튼 클릭됨")
 }
 ```
 
@@ -49,21 +50,21 @@ SplashScreen(
 SplashScreen(
     mode: .static,
     images: [Photo("https://url.to/header_image.jpg")],
-    title: "Creator Studio",
-    product: "3 months of Creator Studio for free.",
-    caption: "Bring your vision to life with powerful apps.",
+    title: "크리에이터 스튜디오",
+    product: "크리에이터 스튜디오 3개월 무료 체험。",
+    caption: "강력한 앱으로 당신의 비전을 현실로 만드세요。",
     features: [
-        SplashFeature(title: "Feature 1", icon: "video"),
-        SplashFeature(title: "Feature 2", icon: "waveform")
+        SplashFeature(title: "기능 1", icon: "video"),
+        SplashFeature(title: "기능 2", icon: "waveform")
     ],
-    footer: "Terms and conditions apply.",
-    cta: "Accept Offer",
-    secondaryCta: "See All Plans",
+    footer: "이용 약관이 적용됩니다。",
+    cta: "혜택 받기",
+    secondaryCta: "모든 요금제 보기",
     secondaryAction: {
-        print("Secondary action tapped")
+        print("보조 액션 클릭됨")
     }
 ) {
-    print("Primary action tapped")
+    print("기본 액션 클릭됨")
 }
 ```
 
@@ -80,6 +81,7 @@ App Store Screenshots © 2025 Apple Inc.
 [Creating visual effects with SwiftUI - Apple Developer](https://developer.apple.com/documentation/swiftui/creating-visual-effects-with-swiftui)
 
 ## X 관련 게시물
+https://x.com/1998design/status/2019418746553790664 <br>
 https://x.com/1998design/status/1888641485303878110 <br>
 https://x.com/1998design/status/1888945523845140677
 
