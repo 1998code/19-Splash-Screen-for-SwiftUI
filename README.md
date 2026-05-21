@@ -1,14 +1,14 @@
 # SplashScreenKit
 ### A New Splash Screen for SwiftUI
 
+<img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
+
 | Region | Languages |
 | :--- | :--- |
 | **Global** | [English](./README.md) |
 | **Asia** | [廣東話](./Readme/README_HK.md) [繁體中文](./Readme/README_TW.md) [简体中文](./Readme/README_CN.md) [日本語](./Readme/README_JP.md) [한국어](./Readme/README_KR.md) [Indo](./Readme/README_ID.md) [हिन्दी](./Readme/README_HI.md) |
 | **Europe** | [Français](./Readme/README_FR.md) [Deutsch](./Readme/README_DE.md) [Español](./Readme/README_ES.md) [Русский](./Readme/README_RU.md) [Polski](./Readme/README_PL.md) [Türkçe](./Readme/README_TR.md) |
 | **ME & Africa** | [العربية](./Readme/README_AR.md) [Kiswahili](./Readme/README_SW.md) |
-
-<img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
 **27.0.1 (Stable Release)** <br>
@@ -23,7 +23,7 @@
 - **Advanced Text Effects:** Beautiful text rendering and transitions using SwiftUI 6.0 features.
 
 ## Environment / Tested on
-- 📲 iOS 18.0+ required
+- 📲 iOS 18.0+
 - Swift 6.0
 - Xcode 16.0+
 
@@ -95,7 +95,7 @@ SplashScreen(
 
 `logoSystemName` accepts any SF Symbol name and defaults to `"apple.logo"`. Simple Mode does not require images, so the `images` parameter can be omitted.
 
-<img width="637" height="986" alt="Simple" src="https://github.com/user-attachments/assets/e4cf934a-57cc-4b4a-96af-3ac68451b8e9" />
+<img width="670" height="752" alt="Simple2" src="https://github.com/user-attachments/assets/b3e52e6c-8e7b-4eef-8ef6-0f6557b216ef" />
 
 ## Known Issues
 - Only compatible with iOS 18+, leveraging the latest SwiftUI `TextRenderer` and visual effect APIs.
