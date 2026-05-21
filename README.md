@@ -49,7 +49,7 @@ SplashScreen(
 
 <img src="https://github.com/user-attachments/assets/28c8a5dc-cb8c-4aa4-b0a8-d7139ce3cefc" width="350" />
 
-### Static Mode (NEW)
+### Static Mode
 A clean, scrollable layout perfect for product introductions.
 ```swift
 SplashScreen(
@@ -94,6 +94,8 @@ SplashScreen(
 ```
 
 `logoSystemName` accepts any SF Symbol name and defaults to `"apple.logo"`. Simple Mode does not require images, so the `images` parameter can be omitted.
+
+<img width="637" height="986" alt="Simple" src="https://github.com/user-attachments/assets/e4cf934a-57cc-4b4a-96af-3ac68451b8e9" />
 
 ## Known Issues
 - Only compatible with iOS 18+, leveraging the latest SwiftUI `TextRenderer` and visual effect APIs.
