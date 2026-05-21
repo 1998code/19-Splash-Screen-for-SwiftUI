@@ -7,6 +7,7 @@ import SwiftUI
 public enum SplashScreenMode {
     case carousel
     case `static`
+    case simple
 }
 
 public struct SplashFeature: Identifiable {
@@ -29,11 +30,14 @@ public struct SplashScreen: View {
     @State var photos: [Photo]
     
     var mode: SplashScreenMode
+    var logoSystemName: String
     var title: String
     var product: String
     var caption: String
     var features: [SplashFeature]
     var footerText: String?
+    var footerLinkText: String?
+    var footerLinkURL: URL?
     var ctaText: String
     var ctaAction: () -> Void
     var secondaryCtaText: String?
@@ -41,24 +45,30 @@ public struct SplashScreen: View {
     
     public init(
         mode: SplashScreenMode = .carousel,
-        images: [Photo],
+        images: [Photo] = [],
+        logoSystemName: String = "apple.logo",
         title: String,
         product: String,
         caption: String,
         features: [SplashFeature] = [],
         footer: String? = nil,
+        footerLink: String? = nil,
+        footerLinkURL: URL? = nil,
         cta: String,
         secondaryCta: String? = nil,
         secondaryAction: (() -> Void)? = nil,
         action: @escaping () -> Void
     ) {
         self.mode = mode
+        self.logoSystemName = logoSystemName
         self._photos = State(initialValue: images) // Initialize @State variable
         self.title = title
         self.product = product
         self.caption = caption
         self.features = features
         self.footerText = footer
+        self.footerLinkText = footerLink
+        self.footerLinkURL = footerLinkURL
         self.ctaText = cta
         self.ctaAction = action
         self.secondaryCtaText = secondaryCta
@@ -90,10 +100,122 @@ public struct SplashScreen: View {
                 }
                 .background(.black.opacity(0.85))
                 .background(.ultraThinMaterial)
-            } else {
+            } else if mode == .static {
                 staticLayout
+            } else {
+                simpleLayout
             }
         }
+    }
+
+    public var simpleLayout: some View {
+        GeometryReader { geometry in
+            let scale = min(geometry.size.width / 430, 1)
+
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        Color(red: 0.12, green: 0.34, blue: 0.09),
+                        Color(red: 0.04, green: 0.22, blue: 0.02),
+                        Color(red: 0.00, green: 0.12, blue: 0.00)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                    .ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    Spacer(minLength: 0)
+
+                    VStack(spacing: 0) {
+                        Text(title)
+                            .font(.system(size: 18 * scale, weight: .bold))
+                            .foregroundStyle(.white.opacity(0.5))
+
+                        HStack(alignment: .firstTextBaseline, spacing: 8 * scale) {
+                            Image(systemName: logoSystemName)
+                                .font(.system(size: 42 * scale, weight: .bold))
+                                .baselineOffset(3 * scale)
+
+                            Text(product)
+                                .font(.system(size: 56 * scale, weight: .semibold))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.45)
+                        }
+                        .foregroundStyle(.white)
+
+                        Text(caption)
+                            .font(.system(size: 19 * scale, weight: .medium))
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(3 * scale)
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 28 * scale)
+                            .padding(.top, 14 * scale)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.horizontal, 28 * scale)
+                    .offset(y: -78 * scale)
+
+                    Spacer(minLength: 0)
+
+                    VStack(alignment: .leading, spacing: 14 * scale) {
+                        Image(systemName: "person.2.fill")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.white, .white.opacity(0.58))
+                            .font(.system(size: 32 * scale, weight: .semibold))
+                            .frame(width: 44 * scale, alignment: .leading)
+
+                        if footerText != nil {
+                            Text(footerAttributedText)
+                                .font(.system(size: 13 * scale, weight: .medium))
+                                .lineSpacing(1.5 * scale)
+                                .tint(.white)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+
+                        Button(action: ctaAction) {
+                            Text(ctaText)
+                                .font(.system(size: 18 * scale, weight: .bold))
+                                .foregroundStyle(.black)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 18 * scale)
+                        }
+                        .background(.white, in: Capsule())
+                        .padding(.top, 8 * scale)
+
+                        if let secondaryCtaText = secondaryCtaText {
+                            Button(action: { secondaryCtaAction?() }) {
+                                Text(secondaryCtaText)
+                                    .font(.system(size: 14 * scale, weight: .semibold))
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 34 * scale)
+                    .padding(.bottom, 24 * scale)
+                }
+            }
+        }
+    }
+
+    private var footerAttributedText: AttributedString {
+        guard let footerText = footerText else { return AttributedString() }
+
+        var attributedText = AttributedString(footerText)
+        attributedText.foregroundColor = .white.opacity(0.58)
+
+        guard let footerLinkText = footerLinkText, let footerLinkURL = footerLinkURL else {
+            return attributedText
+        }
+
+        var linkText = AttributedString(" \(footerLinkText)")
+        linkText.link = footerLinkURL
+        linkText.foregroundColor = .white
+        linkText.underlineStyle = .single
+        attributedText.append(linkText)
+
+        return attributedText
     }
 
     public var staticLayout: some View {

@@ -60,6 +60,22 @@ struct ContentView: View {
     }
 }
 
+#Preview("Apple Sports (Simple)") {
+    SplashScreen(
+        mode: .simple,
+        logoSystemName: "apple.logo",
+        title: "Welcome to",
+        product: "Sports",
+        caption: "Get real-time scores, stats, and standings for the teams and leagues you follow.",
+        footer: "Apple may use information about your subscriptions to show relevant offers. Device identifiers may be used to keep scores and other data up to date.",
+        footerLink: "See how your data is managed...",
+        footerLinkURL: URL(string: "https://www.apple.com/legal/privacy/data/en/apple-sports/"),
+        cta: "Continue"
+    ) {
+        print("Continue to Apple Sports")
+    }
+}
+
 #Preview("Final Cut Camera") {
     SplashScreen(
         images: [

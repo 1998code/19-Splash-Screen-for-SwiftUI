@@ -11,14 +11,15 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**2.2.3 (Stable Release)** <br>
-*Optimized for high-performance interaction with zero jank.*
+**27.0.0 (Stable Release)** <br>
+*Adds a lightweight Apple Sports-inspired Simple Mode alongside the existing carousel and static layouts.*
 
+- **Simple Mode:** Full-screen text-first splash screen with configurable SF Symbol logo, gradient background, footer copy, and inline privacy link.
 - **Seamless Infinite Carousel:** New virtual-index logic prevents "flying cards" and ensures smooth infinite rotation.
 - **Performance Optimized:** Metal-accelerated rendering (`drawingGroup`) and efficient per-frame updates via `RunLoop`.
 - **Momentum Scrolling:** Butter-smooth, velocity-based interactive gestures with native deceleration feel.
 - **AsyncImage Support:** Pre-validated URL handling for lag-free remote image loading.
-- **Two Display Modes:** Choose between dynamic `.carousel` and elegant `.static` layouts.
+- **Three Display Modes:** Choose between dynamic `.carousel`, elegant `.static`, and lightweight `.simple` layouts.
 - **Advanced Text Effects:** Beautiful text rendering and transitions using SwiftUI 6.0 features.
 
 ## Environment / Tested on
@@ -74,9 +75,29 @@ SplashScreen(
 
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
+### Simple Mode (NEW)
+A text-first, Apple Sports-inspired welcome screen for lightweight onboarding.
+```swift
+SplashScreen(
+    mode: .simple,
+    logoSystemName: "apple.logo",
+    title: "Welcome to",
+    product: "Sports",
+    caption: "Get real-time scores, stats, and standings for the teams and leagues you follow.",
+    footer: "Apple may use information about your subscriptions to show relevant offers. Device identifiers may be used to keep scores and other data up to date.",
+    footerLink: "See how your data is managed...",
+    footerLinkURL: URL(string: "https://www.apple.com/legal/privacy/data/en/apple-sports/"),
+    cta: "Continue"
+) {
+    print("Continue tapped")
+}
+```
+
+`logoSystemName` accepts any SF Symbol name and defaults to `"apple.logo"`. Simple Mode does not require images, so the `images` parameter can be omitted.
+
 ## Known Issues
 - Only compatible with iOS 18+, leveraging the latest SwiftUI `TextRenderer` and visual effect APIs.
-- Resizing: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths.
+- Resizing: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths. Simple Mode scales its typography and spacing from the device width.
 
 ## Copyright
 App Store Screenshots © 2025 Apple Inc.
