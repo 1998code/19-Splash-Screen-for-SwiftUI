@@ -11,7 +11,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**27.0.0 (Stable Release)** <br>
+**27.0.1 (Stable Release)** <br>
 *Adds a lightweight Apple Sports-inspired Simple Mode alongside the existing carousel and static layouts.*
 
 - **Simple Mode:** Full-screen text-first splash screen with configurable SF Symbol logo, gradient background, footer copy, and inline privacy link.

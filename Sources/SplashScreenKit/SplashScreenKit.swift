@@ -132,10 +132,10 @@ public struct SplashScreen: View {
                             .font(.system(size: 18 * scale, weight: .bold))
                             .foregroundStyle(.white.opacity(0.5))
 
-                        HStack(alignment: .firstTextBaseline, spacing: 8 * scale) {
+                        HStack(alignment: .center, spacing: 8 * scale) {
                             Image(systemName: logoSystemName)
                                 .font(.system(size: 42 * scale, weight: .bold))
-                                .baselineOffset(3 * scale)
+                                .offset(y: -2 * scale)
 
                             Text(product)
                                 .font(.system(size: 56 * scale, weight: .semibold))
